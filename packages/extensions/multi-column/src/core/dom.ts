@@ -230,7 +230,17 @@ export function handleGridDecorations(
       plusIcon.className = 'plus'
 
       circleButton.appendChild(plusIcon)
+      const minuscircleButton = document.createElement('div')
+      minuscircleButton.className = 'minus-circle-button'
+
+      const minusIcon = document.createElement('div')
+      minusIcon.className = 'minus'
+
+      minuscircleButton.appendChild(minusIcon)
+
       widgetDom.appendChild(circleButton)
+
+      widgetDom.appendChild(minuscircleButton)
 
       return widgetDom
     },
@@ -246,44 +256,80 @@ export function handleGridDecorations(
 }
 
 export function handleMouseUp(view: EditorView, event: MouseEvent): boolean {
-  const div = event.target as HTMLElement
-  if (!div) return false
-  if (div.className !== 'circle-button' && div.className !== 'plus')
-    return false
+  const target = event.target as HTMLElement;
+  if (!target) return false;
 
-  const column = div.closest('[data-type="column"]')
-  if (!column) return false
+  // 判断是否为添加列按钮（支持点击内部图标）
+  const isAddButton =
+    target.classList.contains('circle-button') ||
+    target.classList.contains('plus') ||
+    target.closest('.circle-button') !== null;
 
-  const boundryPos = view.posAtDOM(column, 0)
-  if (!boundryPos) return false
+  // 判断是否为删除列按钮
+  const isRemoveButton =
+    target.classList.contains('minus-circle-button') ||
+    target.classList.contains('minus') ||
+    target.closest('.minus-circle-button') !== null;
 
-  const { state } = view
-  const $pos = state.doc.resolve(boundryPos)
-  const { column: columnType, paragraph: paragraphType } = state.schema.nodes
+  if (!isAddButton && !isRemoveButton) return false;
 
-  // 1. Calculate the insertion point (at the end of the columns container)
-  const insertPos = $pos.after($pos.depth)
+  // 获取当前列元素
+  const column = target.closest('[data-type="column"]');
+  if (!column) return false;
 
-  // 2. Create the new column with an empty paragraph
-  const newColumn = columnType.create({ flexGrow: 1 }, paragraphType.create())
+  const pos = view.posAtDOM(column, 0);
+  if (pos === undefined) return false;
 
-  const tr = state.tr.insert(insertPos, newColumn)
+  const { state } = view;
+  const $pos = state.doc.resolve(pos);
+  const { column: columnType, paragraph: paragraphType } = state.schema.nodes;
 
-  /**
-   * 3. Focus logic:
-   * The new column is inserted at 'insertPos'.
-   * The structure is: <column><paragraph> content </paragraph></column>
-   * - insertPos: start of <column>
-   * - insertPos + 1: start of <paragraph>
-   * - insertPos + 2: inside the <paragraph> (where the text goes)
-   */
-  const resolveNewPos = tr.doc.resolve(insertPos + 2)
-  const selection = TextSelection.near(resolveNewPos)
+  // 校验当前节点确实是列节点（避免误判）
+  const currentNode = $pos.node($pos.depth);
+  if (currentNode.type !== columnType) return false;
 
-  view.dispatch(tr.setSelection(selection).scrollIntoView())
+  // 添加列（原逻辑保持不变）
+  if (isAddButton) {
+    // 在当前列之后插入新列
+    const insertPos = $pos.after($pos.depth);
+    const newColumn = columnType.create({ flexGrow: 1 }, paragraphType.create());
+    const tr = state.tr.insert(insertPos, newColumn);
 
-  // 4. Ensure the editor DOM gets focus
-  view.focus()
+    // 光标定位到新列内部的段落
+    const newPos = insertPos + 2; // 新列起始 + 列内段落起始 + 段落内部偏移
+    const selection = TextSelection.near(tr.doc.resolve(newPos));
 
-  return true
+    view.dispatch(tr.setSelection(selection).scrollIntoView());
+    view.focus();
+    return true;
+  }
+
+  // 删除列
+  if (isRemoveButton) {
+    // 获取父节点（columns 容器）
+    const parentNode = $pos.node($pos.depth - 1);
+    // 防止删除最后一列
+    if (parentNode && parentNode.childCount === 1) {
+      return false; // 至少保留一列
+    }
+
+    // 精确获取当前列的起始和结束位置
+    const start = $pos.before($pos.depth);
+    const end = $pos.after($pos.depth);
+
+    const tr = state.tr.delete(start, end);
+
+    // 设置光标：删除后，将光标定位到删除位置的前一个位置
+    let newCursorPos = start - 1;
+    // 如果前一个位置无效（比如删除了第一列），则定位到删除位置
+    if (newCursorPos < 0) newCursorPos = start;
+    const resolvedPos = tr.doc.resolve(newCursorPos);
+    const selection = TextSelection.near(resolvedPos);
+
+    view.dispatch(tr.setSelection(selection).scrollIntoView());
+    view.focus();
+    return true;
+  }
+
+  return false;
 }

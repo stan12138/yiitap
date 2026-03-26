@@ -30,7 +30,7 @@ function toggle() {
     display: flex;
     align-items: flex-start;
     gap: 0.25rem;
-    border: 1px solid var(--gray-3);
+    border: 1px solid gray;
     border-radius: 0.5rem;
 
     summary {

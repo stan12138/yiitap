@@ -111,6 +111,38 @@ div[data-type="column-container"] {
           }
         }
       }
+        // 新增：底部按钮
+      .minus-circle-button {
+        position: relative;
+        bottom: -0px;        // 与顶部按钮对称，向下偏移
+        left: -11px;          // 水平位置与顶部按钮一致
+        width: 20px;
+        height: 20px;
+        background-color: dodgerblue;
+        border: 2px solid var(--yii-bg-color);
+        border-radius: 50% 50% 50% 0%;
+        transform: rotate(135deg);  // 旋转使尖角朝上（与顶部按钮方向相反）
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: rotate(135deg) scale(1.2);
+          background-color: dodgerblue;
+        }
+
+        .minus {
+          position: relative;
+          width: 8px;
+          height: 2px;
+          background-color: white;
+          transform: rotate(45deg);
+          // 不需要旋转，直接显示横线
+        }
+      }
     }
   }
 }
