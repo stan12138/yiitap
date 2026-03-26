@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/core",
+	"name": "@stan-custom-yiitap/core",
 	"description": "Yiitap core functions",
 	"version": "0.17.0",
 	"private": false,

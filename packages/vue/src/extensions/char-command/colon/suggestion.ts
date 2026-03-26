@@ -1,7 +1,7 @@
 import tippy, { type Instance, type Props } from 'tippy.js'
 import { VueRenderer } from '@tiptap/vue-3'
 import View from './view.vue'
-import { filterEmojiGroups } from '@yiitap/util-emoji'
+import { filterEmojiGroups } from '@stan-custom-yiitap/util-emoji'
 import {
   type SuggestionProps,
   type SuggestionKeyDownProps,

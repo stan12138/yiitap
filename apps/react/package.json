@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@yiitap/react": "workspace:*",
+    "@stan-custom-yiitap/react": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

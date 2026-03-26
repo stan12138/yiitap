@@ -94,7 +94,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { NodeViewContent, nodeViewProps } from '@tiptap/vue-3'
 import mermaid from 'mermaid'
 import elkLayouts from '@mermaid-js/layout-elk'
-import { copyToClipboard } from '@yiitap/core'
+import { copyToClipboard } from '@stan-custom-yiitap/core'
 import {
   OCodeBlockDownloadDropdown,
   OCodeBlockViewDropdown,

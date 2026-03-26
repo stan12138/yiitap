@@ -19,7 +19,7 @@
     "types": [
       "vue-i18n",
       "@tiptap/markdown",
-      "@yiitap/core",
+      "@stan-custom-yiitap/core",
     ],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

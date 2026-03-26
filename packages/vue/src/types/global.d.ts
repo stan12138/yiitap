@@ -1,5 +1,5 @@
-// Use types declares in @yiitap/core
-/// <reference types="@yiitap/core/dist/types/types" />
+// Use types declares in @stan-custom-yiitap/core
+/// <reference types="@stan-custom-yiitap/core/dist/types/types" />
 
 declare global {}
 export {}

@@ -52,7 +52,7 @@ import {
   OPopover,
 } from '../../components'
 import { useTheme, useTiptap } from '../../hooks'
-import { emojiGroups } from '@yiitap/util-emoji'
+import { emojiGroups } from '@stan-custom-yiitap/util-emoji'
 
 const props = defineProps(nodeViewProps)
 

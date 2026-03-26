@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/util-emoji",
+	"name": "@stan-custom-yiitap/util-emoji",
 	"description": "Yiitap emoji functions",
 	"version": "0.17.0",
 	"private": false,

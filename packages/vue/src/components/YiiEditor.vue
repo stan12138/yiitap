@@ -58,7 +58,7 @@ import type { FocusPosition } from '@tiptap/core'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Document from '@tiptap/extension-document'
-import type { AiOptions } from '@yiitap/core'
+import type { AiOptions } from '@stan-custom-yiitap/core'
 
 import OMainMenu from './menus/OMainMenu.vue'
 import OBubbleMenu from './menus/OBubbleMenu.vue'
@@ -447,6 +447,6 @@ defineExpose({
 @use '../style/tiptap';
 @use '../style/yiitap';
 @import '../../../icon/dist/yiitap-icon.css';
-@import '@yiitap/extension-multi-column/dist/style.css';
+@import '@stan-custom-yiitap/extension-multi-column/dist/style.css';
 //@import '../style/multi-column';
 </style>

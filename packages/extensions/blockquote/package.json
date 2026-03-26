@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-blockquote",
+	"name": "@stan-custom-yiitap/extension-blockquote",
 	"description": "blockquote extension",
 	"version": "0.17.0",
 	"private": false,

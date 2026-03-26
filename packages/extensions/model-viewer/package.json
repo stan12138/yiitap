@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-model-viewer",
+	"name": "@stan-custom-yiitap/extension-model-viewer",
 	"description": "3D model viewer extension",
 	"version": "0.17.0",
 	"private": false,

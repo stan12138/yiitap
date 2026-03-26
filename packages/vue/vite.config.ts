@@ -58,7 +58,7 @@ export default defineConfig({
       external: [
         'vue',
         /^@tiptap\/.*/,
-        /^@yiitap\/.*/,
+        /^@stan-custom-yiitap\/icon\/.*/,
         '@mermaid-js/layout-elk',
         'katex',
         'lowlight',

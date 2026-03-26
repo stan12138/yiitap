@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { YiiEditor } from '@yiitap/react'
+import { YiiEditor } from '@stan-custom-yiitap/react'
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'

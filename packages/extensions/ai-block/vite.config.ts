@@ -28,7 +28,7 @@ export default mergeConfig(
           '@tiptap/core',
           '@tiptap/pm/model',
           '@tiptap/pm/state',
-          '@yiitap/core',
+          '@stan-custom-yiitap/core',
         ],
         output: {
           banner: `
@@ -42,7 +42,7 @@ export default mergeConfig(
             '@tiptap/core': 'TiptapCore',
             '@tiptap/pm/model': 'TiptapPmModel',
             '@tiptap/pm/state': 'TiptapPmState',
-            '@yiitap/core': 'YiitapCore',
+            '@stan-custom-yiitap/core': 'YiitapCore',
           },
         },
       },

@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-selection-decoration",
+	"name": "@stan-custom-yiitap/extension-selection-decoration",
 	"description": "Selection decoration extension",
 	"version": "0.17.0",
 	"private": false,

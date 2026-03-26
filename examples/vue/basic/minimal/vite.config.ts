@@ -5,24 +5,27 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '.'),
-      // we alias to the lib's source files in dev
-      // so we don't need to rebuild the lib over and over again
-      '@yiitap/vue':
-        process.env.NODE_ENV === 'production'
-          ? '@yiitap/vue'
-          : '@yiitap/vue/src/index.ts',
-    },
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, '.') },
+      
+      // 1. 针对 Vue 包的别名处理
+      // 精确匹配：import from '@stan-custom-yiitap/vue' -> 指向源码
+      { find: /^@stan-custom-yiitap\/vue$/, replacement: path.resolve(__dirname, '../../../../packages/vue/src/index.ts') },
+      // 路径匹配：import from '@stan-custom-yiitap/vue/dist/xxx' -> 指向真正的 dist 目录
+      { find: /^@stan-custom-yiitap\/vue\/dist\/(.*)/, replacement: path.resolve(__dirname, '../../../../packages/vue/dist/$1') },
+
+      // 2. 针对 Icon 包的别名处理
+      { find: /^@stan-custom-yiitap\/icon\/vue$/, replacement: path.resolve(__dirname, '../../../../packages/icon/vue/src/index.ts') },
+      { find: /^@stan-custom-yiitap\/icon\/vue\/dist\/(.*)/, replacement: path.resolve(__dirname, '../../../../packages/icon/vue/dist/$1') },
+    ],
     dedupe: ['vue'],
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData:
-          process.env.NODE_ENV === 'production'
-            ? `@import '@yiitap/vue/dist/vue.css';`
-            : '',
+        additionalData: process.env.NODE_ENV === 'production'
+          ? `` // 使用相对于当前 example 的物理路径
+          : '',
       },
     },
   },
@@ -36,7 +39,7 @@ export default defineConfig({
             if (id.includes('react') || id.includes('vue')) {
               return 'vendor-framework' // Split React/Vue
             }
-            if (id.includes('@yiitap') || id.includes('@tiptap')) {
+            if (id.includes('@stan-custom-yiitap/icon') || id.includes('@tiptap')) {
               return 'vendor-core' // Split tiptap
             }
             if (id.includes('lodash') || id.includes('moment')) {

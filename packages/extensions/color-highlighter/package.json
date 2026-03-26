@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-color-highlighter",
+	"name": "@stan-custom-yiitap/extension-color-highlighter",
 	"description": "Color highlighter extension",
 	"version": "0.17.0",
 	"private": false,

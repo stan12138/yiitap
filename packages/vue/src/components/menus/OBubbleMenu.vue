@@ -44,7 +44,7 @@ import { BubbleMenu } from '@tiptap/vue-3/menus'
 import {
   InlinePlaceholderKey,
   type InlinePlaceholderMeta,
-} from '@yiitap/extension-placeholder'
+} from '@stan-custom-yiitap/extension-placeholder'
 import { getComponent } from '../menu'
 import useI18n from '../../hooks/useI18n'
 import { useTheme } from '../../hooks'
@@ -57,7 +57,7 @@ import {
   TableBubble,
 } from '../../constants/menu'
 import { ODivider, OMenubarBtn, OAiMenu, OInlineMathMenu } from '../index'
-import type { AiOptions } from '@yiitap/core'
+import type { AiOptions } from '@stan-custom-yiitap/core'
 
 const props = defineProps({
   editor: {

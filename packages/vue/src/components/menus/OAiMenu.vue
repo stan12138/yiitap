@@ -78,7 +78,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, type PropType } from 'vue'
 import { Editor } from '@tiptap/core'
-import type { AiOptions, ChatMessage } from '@yiitap/core'
+import type { AiOptions, ChatMessage } from '@stan-custom-yiitap/core'
 import { useAi, useI18n } from '../../hooks'
 import { AskAiBlocks, Prompts } from '../../constants'
 import { AiMessageChunks } from '../../constants/data'

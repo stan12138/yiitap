@@ -17,7 +17,7 @@ export * from './constants'
 export * from './extensions'
 export * from './hooks'
 export * from './utils'
-export * from '@yiitap/core'
+export * from '@stan-custom-yiitap/core'
 
 // Tiptap
 export * from '@tiptap/core'

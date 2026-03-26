@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-shortcut",
+	"name": "@stan-custom-yiitap/extension-shortcut",
 	"description": "Customized shortcut extension",
 	"version": "0.17.0",
 	"private": false,

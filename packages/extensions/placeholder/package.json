@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-placeholder",
+	"name": "@stan-custom-yiitap/extension-placeholder",
 	"description": "Placeholder extension",
 	"version": "0.17.0",
 	"private": false,

@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-multi-column",
+	"name": "@stan-custom-yiitap/extension-multi-column",
 	"description": "Multi-column extension",
 	"version": "0.17.0",
 	"private": false,

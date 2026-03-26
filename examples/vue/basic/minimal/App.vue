@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { YiiEditor } from '@yiitap/vue'
+import { YiiEditor } from '@stan-custom-yiitap/vue'
 
 const editorOptions = computed(() => {
   return {

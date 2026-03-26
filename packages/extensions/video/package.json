@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-video",
+	"name": "@stan-custom-yiitap/extension-video",
 	"description": "Video extension",
 	"version": "0.17.0",
 	"private": false,

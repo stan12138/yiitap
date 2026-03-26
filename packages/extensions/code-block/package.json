@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-code-block",
+	"name": "@stan-custom-yiitap/extension-code-block",
 	"description": "Code block extension",
 	"version": "0.17.0",
 	"private": false,

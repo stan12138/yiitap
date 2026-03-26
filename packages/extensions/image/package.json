@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-image",
+	"name": "@stan-custom-yiitap/extension-image",
 	"description": "Image extension",
 	"version": "0.17.0",
 	"private": false,

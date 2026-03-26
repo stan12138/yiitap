@@ -65,32 +65,32 @@ import UniqueID, { type UniqueIDOptions } from '@tiptap/extension-unique-id'
 // YiiEditor extension imports
 // ---------------------------------------------------------
 // Extension lib
-import type { AiBlockOptions } from '@yiitap/extension-ai-block'
-import type { CalloutOptions } from '@yiitap/extension-callout'
-import OColorHighlighter from '@yiitap/extension-color-highlighter'
-import OInlinePlaceholder from '@yiitap/extension-inline-placeholder'
+import type { AiBlockOptions } from '@stan-custom-yiitap/extension-ai-block'
+import type { CalloutOptions } from '@stan-custom-yiitap/extension-callout'
+import OColorHighlighter from '@stan-custom-yiitap/extension-color-highlighter'
+import OInlinePlaceholder from '@stan-custom-yiitap/extension-inline-placeholder'
 import {
   Column,
   ColumnContainer,
   MultiColumn,
   ColumnDropCursor,
-} from '@yiitap/extension-multi-column'
+} from '@stan-custom-yiitap/extension-multi-column'
 import type {
   MultiColumnOptions,
   ColumnDropCursorOptions,
-} from '@yiitap/extension-multi-column'
-import OPlaceholder from '@yiitap/extension-placeholder'
-import OSelectionDecoration from '@yiitap/extension-selection-decoration'
-import OShortcut, { type ShortcutOptions } from '@yiitap/extension-shortcut'
-import OTable from '@yiitap/extension-table'
-import OTaskItem from '@yiitap/extension-task-item'
+} from '@stan-custom-yiitap/extension-multi-column'
+import OPlaceholder from '@stan-custom-yiitap/extension-placeholder'
+import OSelectionDecoration from '@stan-custom-yiitap/extension-selection-decoration'
+import OShortcut, { type ShortcutOptions } from '@stan-custom-yiitap/extension-shortcut'
+import OTable from '@stan-custom-yiitap/extension-table'
+import OTaskItem from '@stan-custom-yiitap/extension-task-item'
 
-import OCharCommand from '@yiitap/extension-char-command'
+import OCharCommand from '@stan-custom-yiitap/extension-char-command'
 import {
   ColonCommand as OColonCommand,
   SlashCommand as OSlashCommand,
   SlashZhCommand as OSlashZhCommand,
-} from '@yiitap/extension-char-command'
+} from '@stan-custom-yiitap/extension-char-command'
 import {
   ColonSuggestion,
   SlashSuggestion,

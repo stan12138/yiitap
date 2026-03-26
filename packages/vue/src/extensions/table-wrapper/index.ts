@@ -1,5 +1,5 @@
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
-import { TableWrapper } from '@yiitap/extension-table-wrapper'
+import { TableWrapper } from '@stan-custom-yiitap/extension-table-wrapper'
 
 import View from './view.vue'
 

@@ -1,6 +1,6 @@
 import { Node, mergeAttributes } from '@tiptap/core'
 import { Node as ProseMirrorNode } from '@tiptap/pm/model'
-import type { AiOptions } from '@yiitap/core'
+import type { AiOptions } from '@stan-custom-yiitap/core'
 
 export interface AiBlockOptions extends AiOptions {
   HTMLAttributes: Record<string, any>

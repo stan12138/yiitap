@@ -27,10 +27,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
       // we alias to the lib's source files in dev
       // so we don't need to rebuild the lib over and over again
-      '@yiitap/vue':
+      '@stan-custom-yiitap/icon/vue':
         process.env.NODE_ENV === 'production'
-          ? '@yiitap/vue'
-          : '@yiitap/vue/src/index.ts',
+          ? '@stan-custom-yiitap/icon/vue'
+          : '@stan-custom-yiitap/icon/vue/src/index.ts',
     },
     dedupe: ['vue', 'yjs'],
   },
@@ -39,7 +39,7 @@ export default defineConfig({
       scss: {
         additionalData:
           process.env.NODE_ENV === 'production'
-            ? `@import '@yiitap/vue/dist/vue.css';`
+            ? `@import '@stan-custom-yiitap/icon/vue/dist/vue.css';`
             : '',
       },
     },
@@ -64,7 +64,7 @@ export default defineConfig({
               return 'vendor-model-viewer'
             }
 
-            if (id.includes('@yiitap') || id.includes('@tiptap')) {
+            if (id.includes('@stan-custom-yiitap/icon') || id.includes('@tiptap')) {
               return 'vendor-core'
             }
             if (id.includes('markdown-it') || id.includes('openai')) {

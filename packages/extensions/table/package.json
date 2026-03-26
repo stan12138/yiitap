@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-table",
+	"name": "@stan-custom-yiitap/extension-table",
 	"description": "Table extension",
 	"version": "0.17.0",
 	"private": false,

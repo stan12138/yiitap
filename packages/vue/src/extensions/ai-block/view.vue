@@ -128,7 +128,7 @@
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { Node as ProseMirrorNode } from '@tiptap/pm/model'
 import { NodeViewContent, nodeViewProps } from '@tiptap/vue-3'
-import type { ChatMessage } from '@yiitap/core'
+import type { ChatMessage } from '@stan-custom-yiitap/core'
 import {
   OBlockList,
   OBlockMenu,

@@ -1,7 +1,7 @@
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
 import Blockquote, {
   type BlockquoteOptions as OBlockquoteOptions,
-} from '@yiitap/extension-blockquote'
+} from '@stan-custom-yiitap/extension-blockquote'
 
 import View from './view.vue'
 

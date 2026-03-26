@@ -83,7 +83,7 @@
           </div>
           <div class="title">Yiitap</div>
           <div class="version">
-            <version-badge package="@yiitap/vue" />
+            <version-badge package="@stan-custom-yiitap/vue" />
           </div>
         </section>
         <section class="actions">
@@ -152,16 +152,16 @@ import {
   OStarterKit,
   removeHtmlAttributes,
   type AiOptions,
-} from '@yiitap/vue'
-import type { Editor } from '@yiitap/vue'
-import { SupportLanguages } from '@yiitap/i18n'
+} from '@stan-custom-yiitap/vue'
+import type { Editor } from '@stan-custom-yiitap/vue'
+import { SupportLanguages } from '@stan-custom-yiitap/i18n'
 import { HocuspocusProvider } from '@hocuspocus/provider'
 import * as Y from 'yjs'
 import { getData } from '@/data'
 import useAi from '@/hooks/useAi'
 import VersionBadge from './VersionBadge.vue'
 import 'katex/dist/katex.min.css'
-
+import '@stan-custom-yiitap/vue/dist/vue.css';
 const emit = defineEmits(['mode'])
 
 const { aiOption, onStreamingChatCompletion } = useAi()

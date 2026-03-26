@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/extension-link",
+	"name": "@stan-custom-yiitap/extension-link",
 	"description": "Link extension",
 	"version": "0.17.0",
 	"private": false,

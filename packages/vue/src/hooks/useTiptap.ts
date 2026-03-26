@@ -1,7 +1,7 @@
 import { computed, ref, inject } from 'vue'
 import type { ChainedCommands, Editor, SingleCommands } from '@tiptap/core'
 import type { Level } from '@tiptap/extension-heading'
-import { InlinePlaceholderKey } from '@yiitap/extension-placeholder'
+import { InlinePlaceholderKey } from '@stan-custom-yiitap/extension-placeholder'
 import { EmptyDiagram } from '../constants/empty-block'
 
 export default function () {

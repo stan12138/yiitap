@@ -27,8 +27,8 @@
 		"lint": "pnpm eslint '**/*.{vue,ts,js}'",
 		"lint-fix": "pnpm eslint '**/*.{vue,ts,js}' --fix",
 		"build": "pnpm build-packages && pnpm build-app-vue",
-		"build-packages": "pnpm -r -F '@yiitap/*' run build",
-		"build-app-vue": "pnpm -F 'app-vue' run build",
+		"build-packages": "pnpm -r -F '@stan-custom-yiitap/*' run build",
+		"build-app-vue": "pnpm -F '@stan-custom-yiitap/app-vue' run build",
 		"publish": "pnpm build && pnpm changeset publish",
 		"pre-push": "pnpm lint-fix && pnpm test-ci && pnpm build",
 		"preview": "pnpm -F 'app-vue' preview"

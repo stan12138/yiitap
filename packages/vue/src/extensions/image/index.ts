@@ -1,6 +1,6 @@
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
-import Image from '@yiitap/extension-image'
-import type { ImageOptions } from '@yiitap/extension-image'
+import Image from '@stan-custom-yiitap/extension-image'
+import type { ImageOptions } from '@stan-custom-yiitap/extension-image'
 
 import View from './view.vue'
 
