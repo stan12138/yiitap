@@ -10,6 +10,7 @@ import OExtensionDropdown from './buttons/OExtensionDropdown.vue'
 import OFontFamilyDropdown from './buttons/OFontFamilyDropdown.vue'
 import OColorDropdown from './buttons/OColorDropdown.vue'
 import OHeadingDropdown from './buttons/OHeadingDropdown.vue'
+import OInlineMathBtn from './buttons/OInlineMathBtn.vue'
 import OInlineMathEditBtn from './buttons/OInlineMathEditBtn.vue'
 import OListDropdown from './buttons/OListDropdown.vue'
 import OListGroup from './buttons/OListGroup.vue'
@@ -22,12 +23,14 @@ import OTableBtn from './buttons/OTableBtn.vue'
 import OTableGroup from './buttons/OTableGroup.vue'
 import OTextColorDropdown from './buttons/OTextColorDropdown.vue'
 import OTextFormatDropdown from './buttons/OTextFormatDropdown.vue'
+import OFontSizeDropdown from './buttons/OFontSizeDropdown.vue'
 
 /**
  * Command component except for simple commands
  */
 const CommandComponents: Indexable = {
   ai: OAiBtn,
+  'font-size-dropdown': OFontSizeDropdown,
   'align-dropdown': OAlignDropdown,
   'align-group': OAlignGroup,
   'background-color': OBackgroundColorDropdown,
@@ -37,7 +40,7 @@ const CommandComponents: Indexable = {
   'font-family': OFontFamilyDropdown,
   heading: OHeadingDropdown,
   highlight: OHighlightDropdown,
-  // 'inline-math': OInlineMathBtn,
+  'inline-math': OInlineMathBtn,
   'inline-math-edit': OInlineMathEditBtn,
   // 'line-height': 'o-line-height-dropdown',
   'list-dropdown': OListDropdown,

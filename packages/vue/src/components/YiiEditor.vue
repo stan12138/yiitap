@@ -350,7 +350,7 @@ function buildExtensions() {
 
         if (node.type.name === 'heading') {
           const level = node.attrs.level
-          return pos > 0 ? `H${level}` : tr('label.untitled')
+          return "What's the title"
         } else if (node.type.name === 'paragraph') {
           return tr('label.typeForCommands')
         } else {

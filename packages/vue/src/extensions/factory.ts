@@ -25,6 +25,7 @@ import type {
   TaskListOptions,
   TextAlignOptions,
   TextStyleOptions,
+  FontSizeOptions,
   TypographyOptions,
   UnderlineOptions,
   UniqueIDOptions,
@@ -69,6 +70,7 @@ import {
   Underline,
   UniqueID,
   TextStyle,
+  FontSize,
   Table,
   TableHeader,
   TableCell,
@@ -147,6 +149,7 @@ export interface ExtensionOptions {
   TaskList: TaskListOptions
   TextAlign: TextAlignOptions
   TextStyle: TextStyleOptions
+  FontSize: FontSizeOptions
   Typography: TypographyOptions
   Underline: UnderlineOptions
   UniqueID: UniqueIDOptions
@@ -220,6 +223,7 @@ export const extensionRegistry: {
   TextAlign: (opts?) =>
     TextAlign.configure({ types: ['heading', 'paragraph'], ...opts }),
   TextStyle: (opts?) => TextStyle.configure(opts),
+  FontSize: (opts?) => FontSize.configure(opts),
   Typography: (opts?) => Typography.configure(opts),
   Underline: (opts?) => Underline.configure(opts),
   UniqueID: (opts?) =>

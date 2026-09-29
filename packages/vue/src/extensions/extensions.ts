@@ -31,10 +31,12 @@ import {
   Color,
   FontFamily,
   TextStyle,
+  FontSize,
   type BackgroundColorOptions,
   type ColorOptions,
   type FontFamilyOptions,
   type TextStyleOptions,
+  type FontSizeOptions
 } from '@tiptap/extension-text-style'
 import { Markdown, type MarkdownExtensionOptions } from '@tiptap/markdown'
 import Collaboration, {
@@ -132,6 +134,7 @@ export const DefaultExtensionNames = [
   'TaskList',
   'TextAlign',
   'TextStyle',
+  'FontSize',
   'Typography',
   'UniqueID',
 
@@ -177,6 +180,7 @@ export {
   TaskList,
   TextAlign,
   TextStyle,
+  FontSize,
   Typography,
   Underline,
   UniqueID,
@@ -244,6 +248,7 @@ export type {
   TaskListOptions,
   TextAlignOptions,
   TextStyleOptions,
+  FontSizeOptions,
   TypographyOptions,
   UnderlineOptions,
   UniqueIDOptions,

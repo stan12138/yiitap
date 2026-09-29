@@ -123,14 +123,14 @@ export const BasicBlocks: BlockOption[] = [
 export const StyleBlocks: BlockOption[] = BasicBlocks.filter((e) => e.style)
 
 export const CommonBlocks: BlockOption[] = [
-  {
-    label: 'editor.aiBlock',
-    value: 'aiBlock',
-    icon: 'auto_awesome',
-    color: BrandColor.purple,
-    tips: 'ai',
-    group: 'label.ai',
-  },
+  // {
+  //   label: 'editor.aiBlock',
+  //   value: 'aiBlock',
+  //   icon: 'auto_awesome',
+  //   color: BrandColor.purple,
+  //   tips: 'ai',
+  //   group: 'label.ai',
+  // },
   {
     label: 'editor.callout',
     value: 'callout',

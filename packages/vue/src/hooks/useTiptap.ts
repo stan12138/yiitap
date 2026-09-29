@@ -244,6 +244,9 @@ export default function () {
       case 'textAlign':
         focus.setTextAlign(options.textAlign).run()
         break
+      case 'fontSize':
+        commands.setFontSize(options.fontSize)
+        break
       case 'underline':
         focus.toggleUnderline().run()
         break
