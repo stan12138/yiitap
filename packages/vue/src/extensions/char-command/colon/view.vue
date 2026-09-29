@@ -1,6 +1,6 @@
 <template>
   <section class="o-colon-view">
-    <o-emoji-select :items="items" @select="onSelect" />
+    <o-emoji-select :items="items" :query="query" @select="onSelect" />
   </section>
 </template>
 
@@ -15,6 +15,10 @@ export default {
     items: {
       type: Array as () => Indexable[],
       required: true,
+    },
+    query: {
+      type: String,
+      default: '',
     },
     command: {
       type: Function,
@@ -65,7 +69,7 @@ export default {
 }
 
 .emoji-tippy {
-  background: #fff;
+  background: var(--yii-tippy-popover-bg-color);
   border-radius: 8px;
   box-shadow:
     0 1px 8px rgba(0, 0, 0, 0.2),
@@ -77,7 +81,7 @@ export default {
   }
 
   .tippy-content {
-    padding: 8px;
+    padding: 0;
   }
 }
 </style>

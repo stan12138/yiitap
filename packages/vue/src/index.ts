@@ -1,5 +1,6 @@
 import type { App } from 'vue'
 import YiiEditor from './components/YiiEditor.vue'
+import YiiCodeEditor from './components/YiiCodeEditor.vue'
 
 const YiiEditorPlugin = {
   installed: false,
@@ -11,12 +12,13 @@ const YiiEditorPlugin = {
 }
 
 // Yiitap
-export { YiiEditor, YiiEditorPlugin }
+export { YiiEditor, YiiEditorPlugin, YiiCodeEditor }
 export * from './components'
 export * from './constants'
 export * from './extensions'
 export * from './hooks'
 export * from './utils'
+export * from './types/types'
 export * from '@stan-custom-yiitap/core'
 
 // Tiptap

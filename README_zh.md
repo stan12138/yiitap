@@ -1,6 +1,9 @@
 [English](https://github.com/pileax-ai/yiitap) | **简体中文**
 
 <h1 align="center">Yiitap</h1>
+<p align="center">
+  ⚡ 几分钟打造 Notion 风格的 AI 编辑器
+</p>
 
 <p align="center">
     <a href="https://github.com/pileax-ai/yiitap/actions/workflows/build.yml" alt="Build Status">
@@ -18,19 +21,73 @@
 
 Yiitap 是一个AI驱动、Notion风格的块级编辑器。🔥
 
-## 特性
+## 演示
+
+> AI + 块级编辑器 —— 实例展示
+
+![截图](docs/screenshots/screenshot.gif)
+
+### AI菜单
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai_menu-zh.png" width="400" />
+</p>
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+
+### AI块
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai-block.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+### 分栏
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/multi-column.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+### 表格
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/table.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+## 核心特性
 
 🚀 **支持 Vue & React**： 无缝集成两大主流框架  
+🤖 **AI 赋能**： 内置 AI 功能，助力内容创作，提升工作效率  
+📝 **Markdown 友好**：支持直接粘贴、复制 Markdown 内容  
+🤝 **协作**：基于 Yjs 和 Hocuspocus 的协作编辑  
 📝 **Notion 风格编辑器**： 界面简洁，交互直观  
 🔧 **高度可定制 & 可扩展**： 基于 **Tiptap** & **ProseMirror** 构建  
-🤖 **AI 赋能**： 提供 AI 功能，提升编辑体验  
 🧩 **块级编辑**： 通过 **气泡菜单、悬浮菜单、主菜单、侧边菜单** 轻松操作内容  
 ✨ **丰富的特性**： 内置 **15+ 定制扩展** & **50+ 组件**  
 🌍 **国际化** – 支持 **10+ 语言**  
 🌗 支持深色模式   
 🆓 MIT 许可  
 
+## 使用场景
+- 知识管理 / 笔记：个人笔记、知识库、灵感记录、项目文档；
+- 内容创作 / 写作：文章、博客、周报、技术文档、长文写作；
+- AI 内容编辑：AI 辅助续写、润色、改写、总结、翻译等；
+- Markdown 工作流：Markdown 编辑、查看、复制粘贴、导入导出；
+- AI 对话渲染：适合作为 Chat / Agent 的富文本消息渲染器；
+- 低代码 / CMS 编辑器：用于后台管理系统、页面编辑器、内容系统；
+- 自定义编辑器开发：适合需要块级编辑、扩展能力、深度定制的场景。
+
+
 ## 快速开始
+
+### 安装
+
+```shell
+pnpm install @yiitap/vue @yiitap/vue-preset
+```
+
+### 指南
 
 - [使用指南](https://yiitap.pileax.ai/guide/getting-started)
 - [在线演示](https://yiitap.pileax.ai/demo/vue)
@@ -38,9 +95,9 @@ Yiitap 是一个AI驱动、Notion风格的块级编辑器。🔥
 
 如需更详细的信息，请务必查看我们的[文档](https://yiitap.pileax.ai/guide/getting-started)。如果您在使用过程中遇到任何问题或有改进建议，欢迎提交 [issue](https://github.com/pileax-ai/yiitap/issues/new/choose)。
 
-## 截图
 
-![截图](docs/screenshots/screenshot.gif)
+## 使用 Yiitap 的项目
+🍀 [PileaX](https://github.com/pileax-ai/pileax): 一站式 AI 知识库，一款本地优先的一站式 AI 知识库，集 AI 对话、智能笔记、电子书阅读和管理于一体。
 
 
 ## 贡献

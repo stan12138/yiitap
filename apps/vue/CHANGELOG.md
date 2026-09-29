@@ -1,5 +1,100 @@
 # app-vue
 
+## 0.19.3
+
+### Patch Changes
+
+- 0c59a6e: table link
+- Updated dependencies [0c59a6e]
+- Updated dependencies [2c5e53c]
+  - @yiitap/vue@0.19.3
+  - @yiitap/i18n@0.19.3
+  - @yiitap/vue-preset@0.19.3
+
+## 0.19.2
+
+### Patch Changes
+
+- Updated dependencies [ed90f08]
+- Updated dependencies [8e5c744]
+  - @yiitap/vue@0.19.2
+  - @yiitap/vue-preset@0.19.2
+  - @yiitap/i18n@0.19.2
+
+## 0.19.1
+
+### Patch Changes
+
+- fc4148c: fix: code editor
+- Updated dependencies [fc4148c]
+  - @yiitap/vue@0.19.1
+  - @yiitap/i18n@0.19.1
+  - @yiitap/vue-preset@0.19.1
+
+## 0.19.0
+
+### Minor Changes
+
+- 06f04af: simple code editor
+
+### Patch Changes
+
+- Updated dependencies [664b19f]
+- Updated dependencies [d1a7f2e]
+- Updated dependencies [06f04af]
+- Updated dependencies [0668786]
+  - @yiitap/vue@0.19.0
+  - @yiitap/i18n@0.19.0
+  - @yiitap/vue-preset@0.19.0
+
+## 0.18.2
+
+### Patch Changes
+
+- 0a237ce: slash command options
+- Updated dependencies [0a237ce]
+- Updated dependencies [ef06ac4]
+  - @yiitap/vue@0.18.2
+  - @yiitap/vue-preset@0.18.2
+  - @yiitap/i18n@0.18.2
+
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies [52eee7a]
+  - @yiitap/vue@0.18.1
+  - @yiitap/vue-preset@0.18.1
+  - @yiitap/i18n@0.18.1
+
+## 0.18.0
+
+### Minor Changes
+
+- 333f275: extension: upload-manager
+- e409e43: feat: add menu options
+- 7266c02: feat: embed extension
+
+### Patch Changes
+
+- 6769987: Improve examples
+- Updated dependencies [333f275]
+- Updated dependencies [e409e43]
+- Updated dependencies [6769987]
+- Updated dependencies [7266c02]
+  - @yiitap/vue-preset@0.18.0
+  - @yiitap/i18n@0.18.0
+  - @yiitap/vue@0.18.0
+
+## 0.17.1
+
+### Patch Changes
+
+- Updated dependencies [72705eb]
+  - @yiitap/vue@0.17.1
+  - @yiitap/vue-preset@0.17.1
+  - @yiitap/i18n@0.17.1
+
 ## 0.17.0
 
 ### Minor Changes

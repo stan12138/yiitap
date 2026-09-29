@@ -69,6 +69,10 @@
               />
             </n-form-item>
           </template>
+
+          <h3>Pages</h3>
+          <n-divider />
+          <n-menu :options="menuOptions" />
         </n-form>
       </n-drawer-content>
     </n-drawer>
@@ -130,7 +134,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide, ref, watch, shallowRef, onBeforeMount } from 'vue'
+import { computed, ref, watch, shallowRef, onBeforeMount } from 'vue'
 import {
   NButton,
   NDivider,
@@ -139,6 +143,7 @@ import {
   NForm,
   NFormItem,
   NInput,
+  NMenu,
   NSelect,
   NSwitch,
 } from 'naive-ui'
@@ -149,19 +154,24 @@ import {
   OIcon,
   OMainMenu,
   OAiBlock,
+  OUploadManager,
   OStarterKit,
   removeHtmlAttributes,
+  DefaultBlockMenuOptions,
+  createSlashSuggestion,
   type AiOptions,
+  type SideMenuAddType,
 } from '@stan-custom-yiitap/vue'
-import type { Editor } from '@stan-custom-yiitap/vue'
+import type { Editor, ExtensionsProp } from '@stan-custom-yiitap/vue'
 import { SupportLanguages } from '@stan-custom-yiitap/i18n'
 import { HocuspocusProvider } from '@hocuspocus/provider'
 import * as Y from 'yjs'
 import { getData } from '@/data'
 import useAi from '@/hooks/useAi'
-import VersionBadge from './VersionBadge.vue'
+import VersionBadge from '../components/VersionBadge.vue'
 import 'katex/dist/katex.min.css'
-import '@stan-custom-yiitap/vue/dist/vue.css';
+import { menuOptions } from '@/constants/menu'
+
 const emit = defineEmits(['mode'])
 
 const { aiOption, onStreamingChatCompletion } = useAi()
@@ -173,7 +183,6 @@ const darkMode = ref(false)
 const editable = ref(true)
 const source = ref('default')
 const showDrawer = ref(false)
-provide('locale', locale)
 
 // Collaboration
 const ydoc = shallowRef<Y.Doc | null>(null)
@@ -184,7 +193,7 @@ const documentName = ref('note@2b590c99-18ad-45bb-a4dd-d1ebdf2adcb3')
 const providerUrl = ref('ws://localhost:9621')
 const providerToken = ref('')
 const collabReady = ref(false)
-const DEBUG = false
+const DEBUG = true
 
 const aiOptions = computed(() => {
   return {
@@ -196,11 +205,20 @@ const aiOptions = computed(() => {
 })
 
 const editorOptions = computed(() => {
-  const extensions = [
+  const extensions: ExtensionsProp[] = [
     OStarterKit.configure({
       UniqueID: true,
+      OSlash: {
+        suggestion: createSlashSuggestion({
+          // exclude: ['modelViewer'],
+          // customFilter: (item) => item.value !== 'heading',
+        }),
+      },
     }),
     OAiBlock.configure(aiOptions.value),
+    OUploadManager.configure({
+      onUpload: onUpload,
+    }),
     'InlineMath',
     'Markdown',
     'OAudio',
@@ -208,12 +226,13 @@ const editorOptions = computed(() => {
     'OBlockMath',
     'OColorHighlighter',
     'ODetails',
+    'OEmbed',
     'OImage',
     'OModelViewer',
     'OMultiColumn',
     'OShortcut',
     'OVideo',
-  ] as any[]
+  ]
   if (collabReady.value) {
     extensions.push(
       {
@@ -240,13 +259,17 @@ const editorOptions = computed(() => {
     locale: locale.value,
     darkMode: darkMode.value,
     editable: editable.value,
-    content: collabReady.value ? null : content.value,
+    content: collabReady.value ? '' : content.value,
     showMainMenu: false,
     showBubbleMenu: true,
     showFloatingMenu: true,
     sideMenu: {
       show: true,
-      add: 'menu',
+      add: 'menu' as SideMenuAddType,
+      addMenuOptions: {
+        ...DefaultBlockMenuOptions,
+        modelViewer: false,
+      },
     },
     pageView: 'page',
     mainMenu: [
@@ -269,7 +292,6 @@ const editorOptions = computed(() => {
       'details',
       'list-dropdown',
       'codeBlock',
-      'inline-math',
       'table',
       'callout',
       'emoji',
@@ -277,22 +299,6 @@ const editorOptions = computed(() => {
       'separator',
       'modelViewer',
       'extension-dropdown',
-    ],
-    bubbleMenu: [
-      'bold',
-      'font-size-dropdown',
-      'strike',
-      'text-color-dropdown',
-      'highlight',
-      'clearFormat',
-      'separator',
-      'list-group',
-      'link',
-      'callout',
-      'inline-math',
-      'separator',
-      'align-dropdown',
-      'more',
     ],
     collab: {
       enabled: collaboration.value,
@@ -313,9 +319,11 @@ const sourceList = computed(() => {
   return [
     { label: 'Default', value: 'default' },
     { label: 'Empty', value: 'empty' },
+    { label: 'Code Block', value: 'codeBlock' },
     { label: 'Diagram', value: 'diagram' },
     { label: 'Audio', value: 'audio' },
     { label: 'Image', value: 'image' },
+    { label: 'Media', value: 'media' },
     { label: 'ModelViewer', value: 'modelViewer' },
     { label: 'MultiColumn', value: 'multiColumn' },
     { label: 'Table', value: 'table' },
@@ -349,7 +357,6 @@ const editor = computed(() => {
 function init() {
   try {
     locale.value = localStorage.getItem('yiitap.locale') || 'en-US'
-    source.value = localStorage.getItem('yiitap.source') || 'default'
     providerToken.value = localStorage.getItem('yiitap.token') || ''
     collaboration.value =
       localStorage.getItem('yiitap.collaboration') === 'true'
@@ -358,9 +365,20 @@ function init() {
       aiOption.value = JSON.parse(aiOptionString)
     }
 
+    initSource()
     initCollab()
   } catch (e) {
     // ignore
+  }
+}
+
+function initSource() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const s = urlParams.get('source')
+  if (s && sourceList.value.find((i) => i.value === s)) {
+    source.value = s
+  } else {
+    source.value = localStorage.getItem('yiitap.source') || 'default'
   }
 }
 
@@ -402,6 +420,21 @@ function onGithub() {
   window.open('https://github.com/pileax-ai/yiitap', '_blank')
 }
 
+function onUpload(file: File, type: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    // Upload mock
+    setTimeout(() => {
+      try {
+        // Create a temporary local URL for the file
+        const url = URL.createObjectURL(file)
+        resolve(url)
+      } catch (error) {
+        reject(new Error('Failed to generate mock URL'))
+      }
+    }, 1000)
+  })
+}
+
 function onMode() {
   emit('mode', darkMode.value)
 }
@@ -409,6 +442,7 @@ function onMode() {
 function onUpdate({ editor }: { editor: Editor }) {
   // Get content of editor
   // console.log(editor.getJSON())
+  // console.log(editor.getHTML())
 
   // markdown
   // const markdown = editor.markdown?.serialize(editor.getJSON())

@@ -40,6 +40,7 @@ import type {
   ColumnDropCursorOptions,
   MultiColumnOptions,
   ShortcutOptions,
+  UploadManagerOptions,
 } from './extensions'
 
 // ---------------------------------------------------------
@@ -86,6 +87,7 @@ import {
   OColorHighlighter,
   OColonCommand,
   ODetails,
+  OEmbed,
   OHorizontalRule,
   OImage,
   OInlinePlaceholder,
@@ -101,6 +103,7 @@ import {
   OTableWrapper,
   OTaskItem,
   OVideo,
+  OUploadManager,
 
   // Column
   Column,
@@ -109,8 +112,8 @@ import {
   ColumnDropCursor,
 
   // Suggestions
+  createSlashSuggestion,
   ColonSuggestion,
-  SlashSuggestion,
   EmojiSuggestion,
 } from './extensions'
 
@@ -165,6 +168,7 @@ export interface ExtensionOptions {
   OCallout: CalloutOptions
   OCodeBlock: OCodeBlockOptions
   OColorHighlighter: any
+  OEmbed: { HTMLAttributes?: Record<string, any> }
   OHorizontalRule: HorizontalRuleOptions
   OImage: ImageOptions
   OInlinePlaceholder: { char?: string; HTMLAttributes?: Record<string, any> }
@@ -175,6 +179,7 @@ export interface ExtensionOptions {
   OShortcut: ShortcutOptions
   OSelectionDecoration: any
   OVideo: { allowFullscreen?: boolean; HTMLAttributes?: Record<string, any> }
+  OUploadManager: UploadManagerOptions
 
   // Groups
   ODetails: ODetailsOptions
@@ -236,6 +241,7 @@ export const extensionRegistry: {
         'codeBlock',
         'callout',
         'details',
+        'embed',
         'heading',
         'image',
         'paragraph',
@@ -255,10 +261,11 @@ export const extensionRegistry: {
   OCodeBlock: (opts?) => OCodeBlock.configure(opts),
   OColon: (opts?) =>
     OColonCommand.configure({ suggestion: ColonSuggestion, ...opts }),
+  OEmbed: (opts?) => OEmbed.configure(opts),
   OSlash: (opts?) =>
-    OSlashCommand.configure({ suggestion: SlashSuggestion, ...opts }),
+    OSlashCommand.configure({ suggestion: createSlashSuggestion(), ...opts }),
   OSlashZh: (opts?) =>
-    OSlashZhCommand.configure({ suggestion: SlashSuggestion, ...opts }),
+    OSlashZhCommand.configure({ suggestion: createSlashSuggestion(), ...opts }),
   OColorHighlighter: (opts?) => OColorHighlighter.configure(opts),
   OColumnDropCursor: (opts?) => ColumnDropCursor.configure(opts),
   OHorizontalRule: (opts?) => OHorizontalRule.configure(opts),
@@ -286,6 +293,7 @@ export const extensionRegistry: {
       ...opts,
     }),
   OVideo: (opts?) => OVideo.configure(opts),
+  OUploadManager: (opts?) => OUploadManager.configure(opts),
 
   // Groups (returning arrays)
   Table: (opts?) => [
@@ -317,6 +325,11 @@ export const extensionRegistry: {
     OTableCell,
   ],
 } as const
+
+/**
+ * Derived Types for IntelliSense
+ */
+export type ExtensionsProp = ExtensionName | ExtensionItem | AnyExtension[]
 
 /**
  * Derived Types for IntelliSense
@@ -369,7 +382,7 @@ export const createExtension = <T extends ExtensionName>(
  * Allows passing either a simple string or a full { name, configure } object
  */
 export const createExtensionList = (
-  items: (ExtensionName | ExtensionItem)[]
+  items: ExtensionsProp[]
 ): AnyExtension[] => {
   return items.flatMap((item) => {
     // 1. If it's an array (e.g., OStarterKit.configure())

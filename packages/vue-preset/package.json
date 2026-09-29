@@ -1,6 +1,6 @@
 {
   "name": "@stan-custom-yiitap/vue-preset",
-  "version": "0.17.0",
+  "version": "0.19.3",
   "description": "Preset package that bundles all dependencies for @stan-custom-yiitap/vue",
   "keywords": [],
   "author": {
@@ -60,6 +60,7 @@
     "@stan-custom-yiitap/extension-callout": "workspace:*",
     "@stan-custom-yiitap/extension-char-command": "workspace:*",
     "@stan-custom-yiitap/extension-color-highlighter": "workspace:*",
+    "@stan-custom-yiitap/extension-embed": "workspace:*",
     "@stan-custom-yiitap/extension-image": "workspace:*",
     "@stan-custom-yiitap/extension-inline-placeholder": "workspace:*",
     "@stan-custom-yiitap/extension-model-viewer": "workspace:*",
@@ -70,6 +71,7 @@
     "@stan-custom-yiitap/extension-table": "workspace:*",
     "@stan-custom-yiitap/extension-table-wrapper": "workspace:*",
     "@stan-custom-yiitap/extension-task-item": "workspace:*",
+    "@stan-custom-yiitap/extension-upload-manager": "workspace:*",
     "@stan-custom-yiitap/extension-video": "workspace:*",
     "@stan-custom-yiitap/i18n": "workspace:*",
     "@stan-custom-yiitap/util-emoji": "workspace:*"

@@ -1,5 +1,29 @@
 # @yiitap/icon
 
+## 0.19.3
+
+### Patch Changes
+
+- 2c5e53c: image rotate
+
+## 0.19.2
+
+## 0.19.1
+
+## 0.19.0
+
+## 0.18.2
+
+## 0.18.1
+
+## 0.18.0
+
+### Minor Changes
+
+- 7266c02: feat: embed extension
+
+## 0.17.1
+
 ## 0.17.0
 
 ## 0.16.3

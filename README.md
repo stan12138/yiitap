@@ -1,6 +1,9 @@
 **English** | [简体中文](README_zh.md)
 
 <h1 align="center">Yiitap</h1>
+<p align="center">
+  ⚡ Build AI-native Notion-like editors in minutes
+</p>
 
 <p align="center">
     <a href="https://github.com/pileax-ai/yiitap/actions/workflows/build.yml" alt="Build Status">
@@ -16,31 +19,87 @@
     <a href="https://github.com/pileax-ai/yiitap/stargazers"><img src="https://img.shields.io/github/stars/pileax-ai/yiitap" alt="stars"></a>
 </p>
 
-Yiitap is an AI powered, Notion-style WYSIWYG rich-text block-based editor, built on top of [tiptap](https://tiptap.dev).🔥
+Yiitap is an AI-powered, Notion-style WYSIWYG rich-text block-based editor, built on top of [tiptap](https://tiptap.dev).🔥
 
-## Features
+
+## Demo
+
+> AI + Block Editor in action
+
+![Screenshot](docs/screenshots/screenshot.gif)
+
+### AI Menu
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai_menu-en.png" width="400" />
+</p>
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+### AI Block
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/ai-block.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+### Multi-column
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/multi-column.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+### Table
+
+<p align="center">
+  <img src="https://yiitap.pileax.ai/screenshots/table.gif" width="600" style="border-radius: 8px;" />
+</p>
+
+
+## Key Features
 
 🚀 **Supports Vue & React** – Seamless integration with both frameworks.  
-📝 **Modern Notion-style editor** – Clean, intuitive, and distraction-free.  
-🔧 **Highly customizable & extensible** – Built on **Tiptap** & **ProseMirror**.  
-🤖 **AI-powered** – Smart features to boost productivity.  
-🧩 **Block-based editing** – Manipulate content via **bubble, floating, main, or side menus**.  
-✨ **Rich feature set** – Includes **15+ custom extensions** & **50+ UI components**.  
-🌍 **I18n** – Includes **10+ languages**.  
+🤖 **AI-powered** – Built-in AI capabilities to supercharge content creation and productivity.    
+📝 **Markdown-friendly** - Paste Markdown and copy Markdown natively.  
+🤝 Collaboration: Real-time collaborative editing powered by Yjs and Hocuspocus.  
+📝 **Modern Notion-style Editor** – Clean, intuitive, and distraction-free writing experience.  
+🔧 **Highly Customizable & Extensible** – Based on **Tiptap** & **ProseMirror**.  
+🧩 **Block-based Editing** – Flexible content manipulation via **bubble, floating, main, and side menus**.   
+✨ **Rich Extensions** – **15+ custom extensions** & **50+ UI components**.  
+🌍 **I18n** – Built-in support for **10+ languages**.  
 🌗 Light & Dark mode.  
 🆓 MIT Licensed.
 
+
+## Use Cases
+📚 Knowledge & Notes: Personal notes, knowledge base, project docs.  
+✍️ Content Writing: Articles, blogs, weekly reports, technical docs.  
+🤖 AI Editing: AI continue, polish, rewrite, summarize, translate.  
+📝 Markdown Workflow: Edit, preview, import & export.  
+💬 AI Chat Rendering: Rich text renderer for Chat/Agent.  
+🧩 Low-code & CMS: Admin panels, page & content editors.  
+🔧 Custom Editor: Block-based, extensible, fully customizable.  
+
+
 ## Quick start
 
-- [Guide to Yiitap](https://yiitap.pileax.ai/guide/getting-started)
-- [Live Demo](https://yiitap.pileax.ai/demo/vue)
+### Installation
+
+```shell
+pnpm install @yiitap/vue @yiitap/vue-preset
+```
+
+### Guide
+
+- 👉 [Guide to Yiitap](https://yiitap.pileax.ai/guide/getting-started)
+- 👉 [Live Demo](https://yiitap.pileax.ai/demo/vue)
 - Full Example: [Live](https://pileax-ai.github.io/yiitap/) | [Source](https://github.com/pileax-ai/yiitap/blob/main/apps/vue/src/components/Demo.vue)
 
 For more detailed information, make sure to check out our [documentation](https://yiitap.pileax.ai/guide/getting-started). If you encounter any problems or have suggestions, please open an [issue](https://github.com/pileax-ai/yiitap/issues/new/choose).
 
-## Screenshots
 
-![Screenshot](docs/screenshots/screenshot.gif)
+## Projects Used Yiitap
+🍀 [PileaX](https://github.com/pileax-ai/pileax): All-in-one AI KnowledgeBase, A local-first, all-in-one AI knowledge base that integrates AI chat, smart notes, and e-book reading & management.
 
 
 ## Contributing

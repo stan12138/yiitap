@@ -54,7 +54,7 @@ import {
   watch,
   type PropType,
 } from 'vue'
-import type { FocusPosition } from '@tiptap/core'
+import { Editor, type FocusPosition } from '@tiptap/core'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Document from '@tiptap/extension-document'
@@ -66,14 +66,18 @@ import OFloatingMenu from './menus/OFloatingMenu.vue'
 import OSideMenu from './menus/OSideMenu.vue'
 
 import useI18n from '../hooks/useI18n'
-import { OPlaceholder, createExtensionList } from '../extensions'
-import { Editor } from '@tiptap/core'
-
-type SideMenuAddType = 'menu' | 'empty'
+import { isExtensionInstalled } from '../utils'
+import {
+  OPlaceholder,
+  createExtensionList,
+  type ExtensionsProp,
+} from '../extensions'
+import { type SideMenuAddType } from '../types/types'
 
 interface SideMenuConfig {
   show: boolean
   add: SideMenuAddType
+  addMenuOptions: Record<string, boolean> | null
 }
 
 interface CollabConfig {
@@ -152,6 +156,7 @@ const props = defineProps({
     default: (): SideMenuConfig => ({
       show: true,
       add: 'menu',
+      addMenuOptions: null,
     }),
   },
   /**
@@ -168,7 +173,7 @@ const props = defineProps({
    * <a href="https://github.com/pileax-ai/yiitap/blob/main/packages/vue/src/extensions/index.ts" target="_blank">BuiltinExtensions</a>.
    */
   extensions: {
-    type: Array as () => string[],
+    type: Array as () => ExtensionsProp[],
     default: () => [],
   },
   /**
@@ -253,7 +258,7 @@ const emit = defineEmits<{
   (e: 'update', payload: { editor: Editor }): void
 }>()
 
-const { tr } = useI18n()
+const { tr, setLocale } = useI18n()
 const darkModeAlt = ref(false)
 const isEditable = ref(true)
 const localeAlt = ref('en')
@@ -316,6 +321,7 @@ const sideMenuOptions = computed(() => {
   return {
     editor: editor.value,
     add: props.sideMenu.add,
+    addMenuOptions: props.sideMenu.addMenuOptions,
     title: props.title,
     menu: [],
   }
@@ -352,7 +358,10 @@ function buildExtensions() {
           const level = node.attrs.level
           return "What's the title"
         } else if (node.type.name === 'paragraph') {
-          return tr('label.typeForCommands')
+          const isSlashActive =
+            isExtensionInstalled(editor, 'slash-command') ||
+            isExtensionInstalled(editor, 'slash-zh-command')
+          return isSlashActive ? tr('label.typeForCommands') : ''
         } else {
           return ''
         }
@@ -398,6 +407,8 @@ watch(
   () => props.locale,
   (newValue) => {
     localeAlt.value = newValue
+    setLocale(newValue)
+    editor.value?.view.dispatch(editor.value?.view.state.tr)
   }
 )
 
@@ -422,6 +433,8 @@ onBeforeMount(() => {
   aiOptionsAlt.value = props.aiOptions
   darkModeAlt.value = props.darkMode
   localeAlt.value = props.locale
+  setLocale(props.locale)
+  editor.value?.view.dispatch(editor.value?.view.state.tr)
 })
 
 defineExpose({

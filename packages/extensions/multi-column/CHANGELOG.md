@@ -1,5 +1,33 @@
 # @yiitap/extension-multi-column
 
+## 0.19.3
+
+## 0.19.2
+
+## 0.19.1
+
+## 0.19.0
+
+## 0.18.2
+
+### Patch Changes
+
+- b3d02c5: fix: ``` is not working
+
+## 0.18.1
+
+### Patch Changes
+
+- f92c707: improve: multi-column readonly mode, responsive
+
+## 0.18.0
+
+## 0.17.1
+
+### Patch Changes
+
+- 72705eb: fix list item Enter key behavior
+
 ## 0.17.0
 
 ## 0.16.3

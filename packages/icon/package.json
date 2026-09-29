@@ -1,8 +1,8 @@
 {
 	"name": "@stan-custom-yiitap/icon",
 	"description": "yiitab icon font",
-	"version": "0.17.0",
-	"private": false,
+	"version": "0.19.3",
+	"private": true,
 	"author": {
 		"name": "Yiitap",
 		"email": "yiinote@gmail.com"

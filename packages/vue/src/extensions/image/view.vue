@@ -19,9 +19,10 @@
       show-arrow
     >
       <template #popover-content>
-        <o-media-input
+        <o-media-form
           :val="src === 'init' ? '' : src"
           type="image"
+          :on-upload="onUpload"
           @input="onInput"
         />
       </template>
@@ -159,13 +160,14 @@ import {
   OImageViewer,
   OInput,
   OLinkBtn,
-  OMediaInput,
+  OMediaForm,
   OMenubarBtn,
   ONodeView,
 } from '../../components/index'
 
 const props = defineProps(nodeViewProps)
 
+const onUpload = (props.editor.storage as any).uploadManager?.onUpload
 const { tr } = useI18n()
 const { downloadImage } = useCommon()
 const { isEditable, getEditorImages } = useTiptap()
@@ -303,7 +305,7 @@ function getResizeCursor() {
     case 'right':
       return 'ew-resize'
     case 'bottom':
-      return 'ew-resize'
+      return 'ns-resize'
     default:
       return 'default'
   }
@@ -318,8 +320,6 @@ function onImageLoad() {
       imageView.value?.$el?.parentElement.getBoundingClientRect().width ?? 0
     containerMaxWidth.value =
       document.querySelector('.layout')?.getBoundingClientRect().width ?? 1200
-    // console.log('natural', naturalWidth.value, naturalHeight.value, maxWidth.value, containerMaxWidth.value)
-    // console.log('container', currentContainerHeight.value, containerHeight.value, containerMaxHeight.value)
 
     // Set max width and height
     const aspectRatio = naturalWidth.value / naturalHeight.value
@@ -341,7 +341,6 @@ function onImageLoad() {
     } else {
       isMax.value = currentWidth.value > maxWidth.value
     }
-    // console.log('current', currentWidth.value, currentHeight.value, containerHeight.value)
 
     // container
     if (containerHeight.value > 0) {
@@ -352,7 +351,6 @@ function onImageLoad() {
     }
 
     containerMaxHeight.value = currentHeight.value
-    // console.log('container', currentContainerHeight.value, containerHeight.value, containerMaxHeight.value)
     checkPositionControls()
   }
 }
@@ -581,16 +579,14 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
-.o-node-view:has(.o-image-view.max) {
-  p {
-    max-width: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+p:has(.o-image-view.max) {
+  max-width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 
-    .o-image-view {
-      align-self: center;
-    }
+  .o-image-view {
+    align-self: center;
   }
 }
 
@@ -680,7 +676,7 @@ onUnmounted(() => {
       position: absolute;
       top: 0;
       height: 100%;
-      width: 4px;
+      width: 6px;
       opacity: 0;
       transition: opacity 0.2s;
       cursor: col-resize;
@@ -697,23 +693,25 @@ onUnmounted(() => {
       }
 
       &-indicator {
-        width: 4px;
+        width: 6px;
         height: 48px;
         background-color: var(--yii-tips-color);
-        border-radius: 2px;
+        border-radius: 3px;
+        border: solid 1px rgba(255, 255, 255, 0.75);
       }
 
       &.bottom {
         top: unset;
         bottom: 8px;
         width: 100%;
-        height: 4px;
+        height: 6px;
         justify-content: center;
         cursor: row-resize;
 
         .block-resizer-indicator {
           width: 48px;
-          height: 4px;
+          height: 6px;
+          border: solid 1px rgba(255, 255, 255, 0.75);
         }
       }
     }

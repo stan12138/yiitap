@@ -1,5 +1,261 @@
 # @yiitap/vue
 
+## 0.19.3
+
+### Patch Changes
+
+- 0c59a6e: table link
+- 2c5e53c: image rotate
+- Updated dependencies [0c59a6e]
+- Updated dependencies [2c5e53c]
+  - @yiitap/vue@0.19.3
+  - @yiitap/core@0.19.3
+  - @yiitap/extension-ai-block@0.19.3
+  - @yiitap/extension-blockquote@0.19.3
+  - @yiitap/extension-callout@0.19.3
+  - @yiitap/extension-char-command@0.19.3
+  - @yiitap/extension-color-highlighter@0.19.3
+  - @yiitap/extension-embed@0.19.3
+  - @yiitap/extension-image@0.19.3
+  - @yiitap/extension-inline-placeholder@0.19.3
+  - @yiitap/extension-model-viewer@0.19.3
+  - @yiitap/extension-multi-column@0.19.3
+  - @yiitap/extension-placeholder@0.19.3
+  - @yiitap/extension-selection-decoration@0.19.3
+  - @yiitap/extension-shortcut@0.19.3
+  - @yiitap/extension-table@0.19.3
+  - @yiitap/extension-table-wrapper@0.19.3
+  - @yiitap/extension-task-item@0.19.3
+  - @yiitap/extension-upload-manager@0.19.3
+  - @yiitap/extension-video@0.19.3
+  - @yiitap/i18n@0.19.3
+  - @yiitap/util-emoji@0.19.3
+
+## 0.19.2
+
+### Patch Changes
+
+- ed90f08: fix bugs
+- 8e5c744: diagram previewer
+- Updated dependencies [ed90f08]
+- Updated dependencies [8e5c744]
+  - @yiitap/extension-placeholder@0.19.2
+  - @yiitap/extension-shortcut@0.19.2
+  - @yiitap/extension-callout@0.19.2
+  - @yiitap/vue@0.19.2
+  - @yiitap/core@0.19.2
+  - @yiitap/extension-ai-block@0.19.2
+  - @yiitap/extension-blockquote@0.19.2
+  - @yiitap/extension-char-command@0.19.2
+  - @yiitap/extension-color-highlighter@0.19.2
+  - @yiitap/extension-embed@0.19.2
+  - @yiitap/extension-image@0.19.2
+  - @yiitap/extension-inline-placeholder@0.19.2
+  - @yiitap/extension-model-viewer@0.19.2
+  - @yiitap/extension-multi-column@0.19.2
+  - @yiitap/extension-selection-decoration@0.19.2
+  - @yiitap/extension-table@0.19.2
+  - @yiitap/extension-table-wrapper@0.19.2
+  - @yiitap/extension-task-item@0.19.2
+  - @yiitap/extension-upload-manager@0.19.2
+  - @yiitap/extension-video@0.19.2
+  - @yiitap/i18n@0.19.2
+  - @yiitap/util-emoji@0.19.2
+
+## 0.19.1
+
+### Patch Changes
+
+- fc4148c: fix: code editor
+- Updated dependencies [fc4148c]
+  - @yiitap/vue@0.19.1
+  - @yiitap/core@0.19.1
+  - @yiitap/extension-ai-block@0.19.1
+  - @yiitap/extension-blockquote@0.19.1
+  - @yiitap/extension-callout@0.19.1
+  - @yiitap/extension-char-command@0.19.1
+  - @yiitap/extension-color-highlighter@0.19.1
+  - @yiitap/extension-embed@0.19.1
+  - @yiitap/extension-image@0.19.1
+  - @yiitap/extension-inline-placeholder@0.19.1
+  - @yiitap/extension-model-viewer@0.19.1
+  - @yiitap/extension-multi-column@0.19.1
+  - @yiitap/extension-placeholder@0.19.1
+  - @yiitap/extension-selection-decoration@0.19.1
+  - @yiitap/extension-shortcut@0.19.1
+  - @yiitap/extension-table@0.19.1
+  - @yiitap/extension-table-wrapper@0.19.1
+  - @yiitap/extension-task-item@0.19.1
+  - @yiitap/extension-upload-manager@0.19.1
+  - @yiitap/extension-video@0.19.1
+  - @yiitap/i18n@0.19.1
+  - @yiitap/util-emoji@0.19.1
+
+## 0.19.0
+
+### Minor Changes
+
+- 06f04af: simple code editor
+
+### Patch Changes
+
+- 664b19f: fix(vue): Fix prop extensions type hint for YiiEditor component
+- d1a7f2e: Recent emojis and emoji group scroll sync
+- 0668786: perf(vue): Refactor useI18n hook for better performance
+- Updated dependencies [664b19f]
+- Updated dependencies [d1a7f2e]
+- Updated dependencies [06f04af]
+- Updated dependencies [0668786]
+  - @yiitap/vue@0.19.0
+  - @yiitap/util-emoji@0.19.0
+  - @yiitap/i18n@0.19.0
+  - @yiitap/core@0.19.0
+  - @yiitap/extension-ai-block@0.19.0
+  - @yiitap/extension-blockquote@0.19.0
+  - @yiitap/extension-callout@0.19.0
+  - @yiitap/extension-char-command@0.19.0
+  - @yiitap/extension-color-highlighter@0.19.0
+  - @yiitap/extension-embed@0.19.0
+  - @yiitap/extension-image@0.19.0
+  - @yiitap/extension-inline-placeholder@0.19.0
+  - @yiitap/extension-model-viewer@0.19.0
+  - @yiitap/extension-multi-column@0.19.0
+  - @yiitap/extension-placeholder@0.19.0
+  - @yiitap/extension-selection-decoration@0.19.0
+  - @yiitap/extension-shortcut@0.19.0
+  - @yiitap/extension-table@0.19.0
+  - @yiitap/extension-table-wrapper@0.19.0
+  - @yiitap/extension-task-item@0.19.0
+  - @yiitap/extension-upload-manager@0.19.0
+  - @yiitap/extension-video@0.19.0
+
+## 0.18.2
+
+### Patch Changes
+
+- 0a237ce: slash command options
+- ef06ac4: fix: Use tableHeader for the first row
+- Updated dependencies [0a237ce]
+- Updated dependencies [b3d02c5]
+- Updated dependencies [ef06ac4]
+  - @yiitap/vue@0.18.2
+  - @yiitap/extension-multi-column@0.18.2
+  - @yiitap/core@0.18.2
+  - @yiitap/extension-ai-block@0.18.2
+  - @yiitap/extension-blockquote@0.18.2
+  - @yiitap/extension-callout@0.18.2
+  - @yiitap/extension-char-command@0.18.2
+  - @yiitap/extension-color-highlighter@0.18.2
+  - @yiitap/extension-embed@0.18.2
+  - @yiitap/extension-image@0.18.2
+  - @yiitap/extension-inline-placeholder@0.18.2
+  - @yiitap/extension-model-viewer@0.18.2
+  - @yiitap/extension-placeholder@0.18.2
+  - @yiitap/extension-selection-decoration@0.18.2
+  - @yiitap/extension-shortcut@0.18.2
+  - @yiitap/extension-table@0.18.2
+  - @yiitap/extension-table-wrapper@0.18.2
+  - @yiitap/extension-task-item@0.18.2
+  - @yiitap/extension-upload-manager@0.18.2
+  - @yiitap/extension-video@0.18.2
+  - @yiitap/i18n@0.18.2
+  - @yiitap/util-emoji@0.18.2
+
+## 0.18.1
+
+### Patch Changes
+
+- 52eee7a: enhancement: toc
+- Updated dependencies [f92c707]
+- Updated dependencies [52eee7a]
+  - @yiitap/extension-multi-column@0.18.1
+  - @yiitap/vue@0.18.1
+  - @yiitap/core@0.18.1
+  - @yiitap/extension-ai-block@0.18.1
+  - @yiitap/extension-blockquote@0.18.1
+  - @yiitap/extension-callout@0.18.1
+  - @yiitap/extension-char-command@0.18.1
+  - @yiitap/extension-color-highlighter@0.18.1
+  - @yiitap/extension-embed@0.18.1
+  - @yiitap/extension-image@0.18.1
+  - @yiitap/extension-inline-placeholder@0.18.1
+  - @yiitap/extension-model-viewer@0.18.1
+  - @yiitap/extension-placeholder@0.18.1
+  - @yiitap/extension-selection-decoration@0.18.1
+  - @yiitap/extension-shortcut@0.18.1
+  - @yiitap/extension-table@0.18.1
+  - @yiitap/extension-table-wrapper@0.18.1
+  - @yiitap/extension-task-item@0.18.1
+  - @yiitap/extension-upload-manager@0.18.1
+  - @yiitap/extension-video@0.18.1
+  - @yiitap/i18n@0.18.1
+  - @yiitap/util-emoji@0.18.1
+
+## 0.18.0
+
+### Minor Changes
+
+- 333f275: extension: upload-manager
+- e409e43: feat: add menu options
+- 7266c02: feat: embed extension
+
+### Patch Changes
+
+- 6769987: Improve examples
+- Updated dependencies [333f275]
+- Updated dependencies [e409e43]
+- Updated dependencies [6769987]
+- Updated dependencies [7266c02]
+  - @yiitap/extension-upload-manager@0.18.0
+  - @yiitap/extension-model-viewer@0.18.0
+  - @yiitap/extension-image@0.18.0
+  - @yiitap/extension-video@0.18.0
+  - @yiitap/i18n@0.18.0
+  - @yiitap/vue@0.18.0
+  - @yiitap/extension-embed@0.18.0
+  - @yiitap/core@0.18.0
+  - @yiitap/extension-ai-block@0.18.0
+  - @yiitap/extension-blockquote@0.18.0
+  - @yiitap/extension-callout@0.18.0
+  - @yiitap/extension-char-command@0.18.0
+  - @yiitap/extension-color-highlighter@0.18.0
+  - @yiitap/extension-inline-placeholder@0.18.0
+  - @yiitap/extension-multi-column@0.18.0
+  - @yiitap/extension-placeholder@0.18.0
+  - @yiitap/extension-selection-decoration@0.18.0
+  - @yiitap/extension-shortcut@0.18.0
+  - @yiitap/extension-table@0.18.0
+  - @yiitap/extension-table-wrapper@0.18.0
+  - @yiitap/extension-task-item@0.18.0
+  - @yiitap/util-emoji@0.18.0
+
+## 0.17.1
+
+### Patch Changes
+
+- 72705eb: fix list item Enter key behavior
+- Updated dependencies [72705eb]
+  - @yiitap/extension-multi-column@0.17.1
+  - @yiitap/vue@0.17.1
+  - @yiitap/core@0.17.1
+  - @yiitap/extension-ai-block@0.17.1
+  - @yiitap/extension-blockquote@0.17.1
+  - @yiitap/extension-callout@0.17.1
+  - @yiitap/extension-char-command@0.17.1
+  - @yiitap/extension-color-highlighter@0.17.1
+  - @yiitap/extension-image@0.17.1
+  - @yiitap/extension-inline-placeholder@0.17.1
+  - @yiitap/extension-model-viewer@0.17.1
+  - @yiitap/extension-placeholder@0.17.1
+  - @yiitap/extension-selection-decoration@0.17.1
+  - @yiitap/extension-shortcut@0.17.1
+  - @yiitap/extension-table@0.17.1
+  - @yiitap/extension-table-wrapper@0.17.1
+  - @yiitap/extension-task-item@0.17.1
+  - @yiitap/extension-video@0.17.1
+  - @yiitap/i18n@0.17.1
+  - @yiitap/util-emoji@0.17.1
+
 ## 0.17.0
 
 ### Minor Changes

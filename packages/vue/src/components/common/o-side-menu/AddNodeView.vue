@@ -5,7 +5,7 @@
         <div class="group o-tips">{{ tr('label.basic') }}</div>
         <section class="panel">
           <o-menubar-btn
-            v-for="(item, index) in BasicBlocks"
+            v-for="(item, index) in basicBlocks"
             :key="index"
             :icon="item.icon"
             :tooltip="tr(item.label)"
@@ -16,8 +16,8 @@
       </section>
       <o-divider />
       <o-list hoverable clickable>
-        <template v-if="CommonBlocks.length">
-          <template v-for="(item, index) in CommonBlocks" :key="index">
+        <template v-if="commonBlocks.length">
+          <template v-for="(item, index) in commonBlocks" :key="index">
             <template v-if="item.group">
               <o-divider v-if="index > 0" />
               <div class="group o-tips">{{ tr(item.group) }}</div>
@@ -31,17 +31,18 @@
             </o-list-item>
           </template>
         </template>
-        <div class="item" v-else>No result</div>
+        <div class="item o-tips" v-else>No result</div>
       </o-list>
     </section>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, type PropType, ref } from 'vue'
 import { nodeViewProps } from '@tiptap/vue-3'
 import useI18n from '../../../hooks/useI18n'
 import useTiptap from '../../../hooks/useTiptap'
+import { isExtensionInstalled } from '../../../utils'
 import {
   ODivider,
   OIcon,
@@ -49,7 +50,11 @@ import {
   OListItem,
   OMenubarBtn,
 } from '../../../components/index'
-import { BasicBlocks, CommonBlocks } from '../../../constants/block'
+import {
+  DefaultBlockMenuOptions,
+  BasicBlocks,
+  CommonBlocks,
+} from '../../../constants/block'
 import {
   EmptyAiBlock,
   EmptyAudio,
@@ -59,19 +64,43 @@ import {
   EmptyDetails,
   EmptyDiagram,
   EmptyEmoji,
+  EmptyEmbed,
   EmptyImage,
   EmptyListItem,
+  EmptyModelViewer,
   EmptyParagraph,
   EmptyTable,
   EmptyTaskItem,
   EmptyVideo,
 } from '../../../constants/empty-block'
 
-const props = defineProps(nodeViewProps)
+const props = defineProps({
+  ...nodeViewProps,
+  addMenuOptions: {
+    type: Object as PropType<Record<string, boolean> | null>,
+    default: null,
+  },
+})
 const emit = defineEmits(['action'])
 const { locale, tr } = useI18n()
 const { run } = useTiptap()
 const view = ref('main')
+
+const basicBlocks = computed(() => {
+  const options = props.addMenuOptions || DefaultBlockMenuOptions
+  return BasicBlocks.filter(
+    (item) =>
+      isExtensionInstalled(props.editor, item.value) && options[item.value]
+  )
+})
+
+const commonBlocks = computed(() => {
+  const options = props.addMenuOptions || DefaultBlockMenuOptions
+  return CommonBlocks.filter(
+    (item) =>
+      isExtensionInstalled(props.editor, item.value) && options[item.value]
+  )
+})
 
 function onClick(item) {
   let content = null
@@ -99,6 +128,9 @@ function onClick(item) {
       break
     case 'emoji':
       content = EmptyEmoji
+      break
+    case 'embed':
+      content = EmptyEmbed
       break
     case 'heading':
       content = {
@@ -131,8 +163,8 @@ function onClick(item) {
     case 'image':
       content = EmptyImage
       break
-    case 'model-viewer':
-      content = { attrs: { src: 'init' } }
+    case 'modelViewer':
+      content = EmptyModelViewer
       break
     case 'video':
       content = EmptyVideo
@@ -164,7 +196,6 @@ const isEmpty = computed(() => {
 })
 
 const newPos = computed(() => {
-  // console.log('node', props.getPos(), props.node)
   return isEmpty.value ? props.getPos() : props.getPos() + props.node.nodeSize
 })
 

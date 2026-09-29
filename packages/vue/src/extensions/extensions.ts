@@ -86,6 +86,9 @@ import OSelectionDecoration from '@stan-custom-yiitap/extension-selection-decora
 import OShortcut, { type ShortcutOptions } from '@stan-custom-yiitap/extension-shortcut'
 import OTable from '@stan-custom-yiitap/extension-table'
 import OTaskItem from '@stan-custom-yiitap/extension-task-item'
+import OUploadManager, {
+  type UploadManagerOptions,
+} from '@stan-custom-yiitap/extension-upload-manager'
 
 import OCharCommand from '@stan-custom-yiitap/extension-char-command'
 import {
@@ -94,8 +97,8 @@ import {
   SlashZhCommand as OSlashZhCommand,
 } from '@stan-custom-yiitap/extension-char-command'
 import {
+  createSlashSuggestion,
   ColonSuggestion,
-  SlashSuggestion,
   EmojiSuggestion,
 } from './char-command'
 
@@ -107,6 +110,7 @@ import OBlockquote, { type OBlockquoteOptions } from './blockquote'
 import OCallout from './callout'
 import OCodeBlock, { type OCodeBlockOptions } from './code-block'
 import ODetails, { type ODetailsOptions } from './details'
+import OEmbed from './embed'
 import OHorizontalRule from './horizontal-rule'
 import OImage from './image'
 import OLink from './link'
@@ -196,6 +200,7 @@ export {
   OColonCommand,
   OColorHighlighter,
   ODetails,
+  OEmbed,
   OHorizontalRule,
   OImage,
   OInlinePlaceholder,
@@ -212,6 +217,7 @@ export {
   OTableWrapper,
   OTaskItem,
   OVideo,
+  OUploadManager,
 
   // Column
   Column,
@@ -220,8 +226,8 @@ export {
   ColumnDropCursor,
 
   // Suggestions
+  createSlashSuggestion,
   ColonSuggestion,
-  SlashSuggestion,
   EmojiSuggestion,
 }
 
@@ -263,4 +269,5 @@ export type {
   ColumnDropCursorOptions,
   MultiColumnOptions,
   ShortcutOptions,
+  UploadManagerOptions,
 }

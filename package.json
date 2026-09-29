@@ -1,5 +1,5 @@
 {
-	"name": "@yiitap/root",
+	"name": "@stan-custom-yiitap/root",
 	"description": "Yiitap is a WYSIWYG rich-text block-based editor built on top of tiptap.",
 	"author": {
 		"name": "Yiitap",
@@ -17,13 +17,13 @@
 	"scripts": {
 		"dev": "pnpm -F 'app-vue' dev",
 		"dev-react": "pnpm -F 'app-react' dev",
-		"i18n-generate": "pnpm -F '@yiitap/i18n' generate",
-		"i18n-generate-zh": "pnpm -F '@yiitap/i18n' generate-zh",
-		"icon": "pnpm -F '@yiitap/icon' build",
+		"i18n-generate": "pnpm -F '@stan-custom-yiitap/i18n' generate",
+		"i18n-generate-zh": "pnpm -F '@stan-custom-yiitap/i18n' generate-zh",
+		"icon": "pnpm -F '@stan-custom-yiitap/icon' build",
 		"test": "pnpm --if-present -r run test",
 		"test-ci": "pnpm --if-present -r run test-ci",
-		"test-libs": "pnpm -F '@yiitap/*' run test",
-		"test-vue": "pnpm -F '@yiitap/vue' run test",
+		"test-libs": "pnpm -F '@stan-custom-yiitap/*' run test",
+		"test-vue": "pnpm -F '@stan-custom-yiitap/vue' run test",
 		"lint": "pnpm eslint '**/*.{vue,ts,js}'",
 		"lint-fix": "pnpm eslint '**/*.{vue,ts,js}' --fix",
 		"build": "pnpm build-packages && pnpm build-app-vue",
@@ -35,10 +35,11 @@
 	},
 	"packageManager": "pnpm@10.6.2",
 	"devDependencies": {
-		"@changesets/cli": "^2.28.1",
+		"@changesets/changelog-github": "^1",
+		"@changesets/cli": "^3.0.3",
 		"@eslint/js": "^9.21.0",
 		"@tsconfig/node20": "^20.1.2",
-		"@types/node": "20.8.10",
+		"@types/node": "22.20.4",
 		"@vitejs/plugin-vue": "^5.2.1",
 		"@vue/compiler-dom": "^3.3.8",
 		"@vue/eslint-config-prettier": "^10.2.0",
@@ -57,7 +58,7 @@
 		"vitest": "^3.0.8"
 	},
 	"engines": {
-		"node": ">=20.9.0",
+		"node": ">=22.11",
 		"pnpm": ">8.0.0"
 	},
 	"pnpm": {
@@ -71,9 +72,6 @@
 			"prosemirror-model": "1.25.4",
 			"prosemirror-state": "1.4.4",
 			"prosemirror-view": "1.41.6"
-		},
-		"patchedDependencies": {
-			"@changesets/assemble-release-plan@6.0.9": "patches/@changesets__assemble-release-plan@6.0.9.patch"
 		}
 	}
 }

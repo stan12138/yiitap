@@ -19,18 +19,18 @@ jobs:
   build-and-typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 #version is inferred from package.json's packageManager field
+        uses: pnpm/action-setup@v6 #version is inferred from package.json's packageManager field
         with:
             version: 10.6.2
             run_install: false
 
-      - name: Set node version to 20
-        uses: actions/setup-node@v6
+      - name: Set node version to 22
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22.11.0
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
@@ -41,13 +41,13 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Set node version to 20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 20
           cache: 'pnpm'
@@ -60,13 +60,13 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Set node version to 20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 20
           cache: 'pnpm'
